@@ -37,9 +37,10 @@ data = {
     "Phone_Checks_Per_Hour": checks / (daily_usage + 0.1)
 }
 
+# PREPROCESS
 df = pd.DataFrame([data])
-df = df[feature_names]  # urutkan sesuai model
 
+# Prediksi
 if st.button("Prediksi"):
-    pred = model.predict(df)[0]
-    st.success(f"Tingkat kecanduan diprediksi: **{pred:.2f}** dari 10")
+    prediction = model.predict(df)[0]
+    st.success(f"Tingkat kecanduan diprediksi: **{prediction:.2f}** dari 10")
